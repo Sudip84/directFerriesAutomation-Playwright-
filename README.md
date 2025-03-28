@@ -1,39 +1,39 @@
-# directFerriesAutomation
+# **directFerriesAutomation**
 
-Playwright Test Automation - Setup & Usage Guide
+## **Playwright Test Automation - Setup & Usage Guide**
 
-Prerequisites:
-Before running the Playwright tests, make sure you have Node.js installed on your machine.
+### **Prerequisites**
+Before running the Playwright tests, make sure you have **Node.js** installed on your machine.
 
-Download and install Node.js from nodejs.org.
+- Download and install Node.js from [nodejs.org](https://nodejs.org/).
+- Verify the installation by running the following commands in your terminal:x
+  node -v
+  npm -v
 
-Verify installation by running:
-node -v
-npm -v
-
-Installation:
-Run the following command to install the necessary dependencies:
+### **Installation**
+Run the following commands to install the necessary dependencies:
 
 npm install
 npx playwright install
 
-
-Run Tests Directly in the Terminal
-To execute tests in headed mode (without opening the browser):
-
+### **Run Tests Directly in the Terminal**
+To execute tests in headed mode (with the browser visible), use the following command:
 npm run test
-This command will run all test cases in the configured browser and run parallelly.
 
-Run Tests in a Specific Browser
-To execute tests in a specific browser like Chrome, Firefox, or WebKit:
+### **Run Tests in a Specific Browser**
+To execute tests in a specific browser, such as Chrome, Firefox, or WebKit, use one of the following commands:
 
+For Chrome:
 npm run test-chrome
+
+For WebKit:
 npx run test-webkit
 
-Viewing Test Execution Videos and Report:
-To open html report : 
-run command :  npm run report
-The recorded test execution videos also attach with html report
+### **Viewing Test Execution Videos and Report**
+To open the HTML report after running the tests, execute the following command:
 
-The recorded test execution videos can be found inside the test-results/ directory.
+npm run report
 
+This command will generate and open the test execution report. The recorded test execution videos will be attached to the HTML report.
+
+The recorded test execution videos can also be found inside the test-results/ directory.
