@@ -1,0 +1,14 @@
+{
+    "providers" : {
+        "PO" : {
+            "locationFrom" : "Dover",
+            "destinationLocation" : "Calais",
+            "validateProvider" : "P&O Ferries"
+        },
+        "DFDS" : {
+            "locationFrom" : "Calais",
+            "destinationLocation" : "Dover",
+            "validateProvider" : "DFDS Seaways"
+        }
+    }
+  }
