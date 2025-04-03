@@ -1,46 +1,48 @@
 const {expect} = require("@playwright/test");
 class HomePage {
 
-    constructor(page, expect) {
+    constructor(page) {
         this.page = page;
         this.cookieWin = page.locator("button[data-cky-tag='accept-button']");
         this.locationFrom = page.locator("input[placeholder='From']");
-        this.locationList = page.locator("ul.css-0");
-        this.selectLocation = page.locator("li span");
-        this.destinationLocation = page.locator("input[title='Choose your destination']");
-        this.travelButton = page.locator("button.css-1p3u68d");
     }
 
     async goTo() {
         await this.page.goto('https://openferry.com/');
         await this.page.setViewportSize({ width: 1920, height: 1080 });
-        // click to select cookies option 
-        await this.cookieWin.click();
-        await this.page.waitForTimeout(100);
+        await this.page.getByRole('button', { name: /Accept/i }).click(); 
         const title = await this.page.title();
-        expect(title).toContain("Ferry Tickets");
+        expect(title).toContain("Ferry Tickets"); // validate title of the page
     }
 
     async selectLocationFrom(location) {
+        // select travel from location
         await this.locationFrom.fill(location);
-        await this.page.waitForTimeout(500);
-        const locations = this.locationList;
-        await locations.waitFor({ state: 'visible', timeout: 10000 });
-        const locationFrom = await locations.locator(this.selectLocation).filter({ hasText: location })
-        await locationFrom.first().click();
+        await this.page.getByRole('button', { name: location, exact: true }).click(); 
     }
 
     async selectDestination(destination){
-        await this.page.waitForTimeout(500);
-        await this.destinationLocation.pressSequentially(destination);
-        const locations = this.locationList;
-        const destinationLocation = locations.locator(this.selectLocation).filter({hasText : destination})
-        await destinationLocation.first().click();
+        // select travel destination
+        await this.page.getByPlaceholder('To').click();
+        await this.page.getByRole('button', { name: destination }).click(); 
     }
 
-    async clickOnTravelBtn(){
-        await this.page.waitForTimeout(500);
-        await this.travelButton.click();
+    async clickOnOneWay(){
+        // click on one way button
+        await this.page.getByRole('radio', { name: 'trip One way' }).click();
+    }
+
+    async clickOnSearchBtn(){
+        // select Outbound 
+        await this.page.getByRole('button', { name: /Outbound/ }).click();
+        // click on continue button
+        await this.page.getByRole('button', { name: 'Continue' }).click();
+        // select Afternoon slot
+        await this.page.getByRole('button', { name: /Afternoon/ }).click();
+        // click on Continue button
+        await this.page.getByRole('button', { name: 'Continue' }).click();
+        // click search button
+        await this.page.getByRole('button', { name: /Search/i }).click();
     }
 }
 

@@ -1,13 +1,13 @@
 {
     "providers" : {
         "PO" : {
-            "locationFrom" : "Dover",
-            "destinationLocation" : "Calais",
+            "locationFrom" : "Dover United Kingdom",
+            "destinationLocation" : "Calais France",
             "validateProvider" : "P&O Ferries"
         },
         "DFDS" : {
-            "locationFrom" : "Calais",
-            "destinationLocation" : "Dover",
+            "locationFrom" : "Calais France",
+            "destinationLocation" : "Dover United Kingdom",
             "validateProvider" : "DFDS Seaways"
         }
     }

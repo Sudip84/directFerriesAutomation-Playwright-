@@ -13,7 +13,8 @@ test('Select travel from location and destination with P&O ferry', async ({page}
     await homePage.goTo();
     await homePage.selectLocationFrom(testData.providers.PO.locationFrom);
     await homePage.selectDestination(testData.providers.PO.destinationLocation);
-    await homePage.clickOnTravelBtn();
+    await homePage.clickOnOneWay();
+    await homePage.clickOnSearchBtn();
     await bookingPage.selectPOFerry();
     await ticketPage.validateFerryProviderName(testData.providers.PO.validateProvider);
 })
@@ -28,7 +29,8 @@ test('Select travel from location and destination with DFDS Seaways ferry', asyn
     await homePage.goTo();
     await homePage.selectLocationFrom(testData.providers.DFDS.locationFrom);
     await homePage.selectDestination(testData.providers.DFDS.destinationLocation);
-    await homePage.clickOnTravelBtn();
+    await homePage.clickOnOneWay();
+    await homePage.clickOnSearchBtn();
     await bookingPage.selectDFDSFerry();
     await ticketPage.validateFerryProviderName(testData.providers.DFDS.validateProvider);
 })

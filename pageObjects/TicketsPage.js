@@ -8,10 +8,10 @@ class TicketsPage{
     }
 
     async validateFerryProviderName(expectedProivder){
+        // validate Ferry Provider 
         await this.page.locator("span", {hasText : "View more"}).click();
         const actualFerryProvider = await this.ferryProvider.textContent();
         expect(actualFerryProvider).toEqual(expectedProivder);
-        await this.page.waitForTimeout(2000);
     }
 }
 
