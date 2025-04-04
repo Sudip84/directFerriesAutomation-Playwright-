@@ -38,7 +38,7 @@ class HomePage {
         // click on continue button
         await this.page.getByRole('button', { name: 'Continue' }).click();
         // select Afternoon slot
-        await this.page.getByRole('button', { name: /Afternoon/ }).click();
+        await this.page.getByRole('button', { name: /Morning/ }).click();
         // click on Continue button
         await this.page.getByRole('button', { name: 'Continue' }).click();
         // click search button

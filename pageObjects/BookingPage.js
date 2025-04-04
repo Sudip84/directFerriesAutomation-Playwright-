@@ -3,7 +3,7 @@ const {expect} = require('@playwright/test');
 class BookingPage{
     constructor(page){
         this.page = page;
-        this.poFerry = page.locator("#search-results--trip-0-trip-3");
+        this.poFerry = page.locator("#search-results--trip-0-trip-7");
         this.dfdsFerry = page.locator("#search-results--trip-0-trip-1");
     }
 
